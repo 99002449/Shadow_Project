@@ -99,3 +99,6 @@ ________________________________________________________________________________
 	Reference for Qt Documentation:
 		https://www.qt-project.org
 		https://qt.digia.com
+	Important:
+	1. Use of Abstract class and Interfaces 
+		https://www.c-sharpcorner.com/article/when-to-use-abstract-class-and-interface-in-real-time-projects/
