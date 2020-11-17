@@ -1,0 +1,101 @@
+	
+	Name:Mohammed Sadiq Afreed Meeran
+	PS: 99002449
+	Mail: mohammed.meeran@ltts.com
+	Date: 17-Nov-2020
+________________________________________________________________________________________________________________________________________________________________________________________________
+
+							************************   QT   ******************************
+							
+							
+	1. What is Qt(Quart)/ Qt Code?
+	   Qt is a  framework written in C++.
+	   Qt is a cross-platform application development framework for desktop, embedded and mobile.
+	   Qt is used for developing graphical user interfaces (GUIs) and multi-platform applications that run on all major desktop platforms and most mobile or embedded platforms
+	   Not just GUI, it also supports database access XML parser and web etc..
+	   Licenses: GPL, GNU GPL and commercial
+	   
+	2. What language does Qt use?
+	   C++
+	
+	3. Build System for Qt?
+	   Any build system can be used with Qt, Qt brings its own Qmake.
+	   CMake is also a popular alternative to build Qt projects.(Qt4 and Qt5)
+	   Update/Recent release:
+	      The Qt Build Suite a.k.a Qbs. 
+		  Qbs is a QML based build system which also provides support for Java script. 
+		  This build system not only provides building capability but also packaging like cmake.
+		  
+		  QML:
+		  QML (Qt Modeling Language) is a user interface markup language. It is a declarative language (similar to CSS and JSON) for designing user interface–centric applications.
+		  QML elements can be augmented by standard JavaScript both inline and via included . js files.
+		  
+	4. IDE's used for Qt?
+	   Qt comes with its own IDE - Qt Creator. It runs on Linux, OS X and Windows.
+	   It offers:
+	    - Intelligent code completion
+		- Syntax highlighting
+		- Integrated help system
+		- Debugger
+		- Profiler integration ( the space/memory or time complexity of a program)
+		- Integration for all major version control systems (e.g. git, Bazaar)
+	
+	5. Tools
+	   After installation of Qt the following tools will be available:
+		1. Qt Creator: Cross platform IDE
+		2. Qt Designer: Used for designing Qt GUI application (GUI layout and forms builder)
+		3. Qt Linguest: Helps with working with multiple languages (Internationalization tool set)
+		4. Qt Assist: Customizable documentation reader
+		5. Qt Qmake: Cross platform build tool
+		6. Plug-in for other IDE: Integration with Visual Studio and Eclipse
+		7. Configure: Tool to configure Qt on any specific platform
+		8. Qt SDK: Rich C++ library
+			
+		   Qt SDK consists of following Framework:
+		   Core Framework					WebKit Framework
+		   GUI Framework					Phonon Framework
+		   SQL Framework					Scene Graph Framework
+		   XML Framework					SVG Framework
+		   Networking Framework
+		   OpenGL Framework
+		   Multimedia Framework
+		   2D with painter Framework
+		   
+		9. Qt canvas 3D
+		10. Qt Quick Controls
+		11. Qt3D
+	   
+	6. Qt Libraries
+	   1. QtCore - File I/O, event and object handling, multi threading and concurrency, plug ins, setting management and inter object communication mechanisms
+	   2. QtGui - Set of customizable widgets, 2D graphic canvas and OpenGL integration, powerful font and layout engine, style engine, widget style sheets, SVG support, advance graphic
+	              effects and support for ARGB top-level widget
+				  
+	7. General Instructions
+	
+	   Without GUI (manually)
+	   Step1: NewProject-> Other Project -> Empty qmake project -> ProjectName
+	   Step2: ProjectName gets created and contains ProjectName.pro ==> which is equivalent to cmake/make/ qmake file
+			  Add the start of ProjectName.pro add the following lines:
+				QT += core gui (adding libraries into qmake)
+				greaterThan(QT_MAJOR_VERSION, 4) : QT += widgets
+			  save it.
+	   Step3: Adding a file into project: Right click on project ,select new-> c++ -> c++ source file -> main.cpp -> Add to ProjectName  (Source folder gets created which includes main.cpp)
+	   Step4: In main.cpp:
+				
+				  #include <QApplication>
+				  #include <QLabel>
+				  int main(int agrc, char** argv[])
+				  {
+						QApplication app(argc, argv);
+						QLablel *label =  new QLablel("Hello");
+						label->setWindowTitle("My Application");
+						label->resize(400,400);  	//label gets created of size 400x400
+						label->show();
+						return app.exec();
+				  }
+	   
+		
+	   
+	Reference for Qt Documentation:
+		https://www.qt-project.org
+		https://qt.digia.com
