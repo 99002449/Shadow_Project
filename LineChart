@@ -1,0 +1,49 @@
+mainwindow.cpp
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <math.h>
+#include <iostream>
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    MainWindow::makePlot();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+void MainWindow::makePlot()
+{
+     ui->customPlot->addGraph();
+    ui->customPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
+    // generate some data:
+    QVector<double> x(4000), y(4000); // initialize with entries 0..100
+    for (int i=0; i<2000; ++i)
+    {
+        x[i] = i; // x goes from -1 to 1
+      y[i] = sin(x[i]*( 3.141592653589793238/180)); // let's plot a quadratic function
+      std::cout<<cos(x[i])<<"  ";
+    }
+
+    // create graph and assign data to it:
+
+    ui->customPlot->graph(0)->setData(x, y);
+
+    // give the axes some labels:
+    ui->customPlot->xAxis->setLabel("x");
+    ui->customPlot->yAxis->setLabel("y");
+      ui->customPlot->yAxis2->setLabel("y2");
+        ui->customPlot->xAxis2->setLabel("x2");
+    // set axes ranges, so we see all data:
+    ui->customPlot->xAxis->setRange(0, 2000);
+    ui->customPlot->xAxis->ticker()->setTickCount(10);
+    ui->customPlot->yAxis->ticker()->setTickCount(10);
+    ui->customPlot->yAxis->setRange(-1, 1);
+    ui->customPlot->replot();
+
+}
