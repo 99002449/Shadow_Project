@@ -15,9 +15,7 @@ int main()
     {
         thelist.push_back(a[i]);
     }
-    fstream fout;
-    fout.open("OUTPUT_LOG.txt", ios::out|ios::app );
-    fout.close();
+
     while(1)
     {
         checkRadioactivity(thelist);
@@ -137,24 +135,36 @@ void GenerateNextTurn(list<bunny> &db)
 {
     int ocount=0;
     list<bunny>::iterator iter;
+    fstream fcout;
+    fcout.open("OUTPUT_LOG.txt",ios::out|ios::app);
 
 
 
-    cout<<"Count\tName\t\t\tGender\tCOlor\tRadio\tAge\n";
+    cout<<"Count\tName\t\tGender\tCOlor\tRadio\tAge\n";
     cout<<"-------------------------------------------------------------------------------------------------------\n";
+
+
+    fcout<<"Count\tName\t\t\tGender\tCOlor\tRadio\tAge\n";
+    fcout<<"-------------------------------------------------------------------------------------------------------\n";
+
     for(iter=db.begin(); iter!=db.end(); ++iter)
     {
         //cout<<"\nObject count:"<<++ocount<<"\n";
 
         cout<<"\n"<<++ocount;
-        cout<<"RA "<<iter->radioactive<<"  ";
+
+        fcout<<"\n "<<ocount;
+
         switch(iter->radioactive)
         {
         case 0:
-            if(iter->age>10)
+            if(++iter->age>10)
             {
-                cout<<"                                      "<<iter->name<<" nor  expired\n";
-                iter->flag=1;
+                cout<<"                                      "<<iter->name<<" has  expired\n";
+                 fcout<<"                                      "<<iter->name<<" has  expired\n";
+               // iter->flag=1;
+                iter=db.erase(iter);
+                iter--;
                 break;
             }
 
@@ -163,17 +173,27 @@ void GenerateNextTurn(list<bunny> &db)
             cout<<iter->gender<<"\t";
             cout<<iter->colour<<"\t";
             cout<<iter->radioactive<<"\t";
-            cout<<iter->age++<<"\n";
+            cout<<iter->age<<"\n";
+
+            fcout<<"Bunny "<<iter->name<<"\t\t";
+            fcout<<iter->gender<<"\t";
+            fcout<<iter->colour<<"\t";
+            fcout<<iter->radioactive<<"\t";
+            fcout<<iter->age<<"\n";
            // cout<<"-------------------------------------------------------------------------------------------------------\n";
 
 
             break;
 
         case 1:
-            if(iter->age >=50)
+            if(++iter->age >=50)
             {
-                cout<<"                                       "<<iter->name<<" rad expired\n";
-                iter->flag=1;
+                cout<<"                                       "<<iter->name<<" had expired\n";
+                fcout<<"                                       "<<iter->name<<" had expired\n";
+                //db.pop_front();
+                 iter=db.erase(iter);
+                 iter--;
+
                 break;
             }
 
@@ -183,19 +203,19 @@ void GenerateNextTurn(list<bunny> &db)
             cout<<iter->gender<<"\t";
             cout<<iter->colour<<"\t";
             cout<<iter->radioactive<<"\t";
-            cout<<iter->age++<<"\n";
+            cout<<iter->age<<"\n";
+
+            fcout<<"Bunny "<<iter->name<<"\t\t";
+            fcout<<iter->gender<<"\t";
+            fcout<<iter->colour<<"\t";
+            fcout<<iter->radioactive<<"\t";
+            fcout<<iter->age<<"\n";
              //cout<<"-------------------------------------------------------------------------------------------------------\n";
 
 
             break;
 
-        default:
-            cout<<"Bunny "<<iter->name<<"\t\t";
-            cout<<iter->gender<<"\t";
-            cout<<iter->colour<<"\t";
-            cout<<iter->radioactive<<"\t";
-            cout<<iter->age++<<"\n";
-            cout<<"Default"; break;
+
         }
 
 
@@ -204,10 +224,10 @@ void GenerateNextTurn(list<bunny> &db)
 
 
 
-
+fcout.close();
 }
 void delete_extra(list<bunny>&db)
-{int ocount=0;
+{int ocount=0,n=0;
 
  list<bunny>::iterator iter;
  for(iter=db.begin(); iter!=db.end(); ++iter)
@@ -216,9 +236,16 @@ void delete_extra(list<bunny>&db)
  }
      if(ocount>1000)
         {
-            list<bunny>::iterator it1,it;
-            it=db.begin();
-            advance(it,ocount/2);
-            db.erase(it1,it);
+            list<bunny>::iterator it;
+            for(it=db.begin(); it!=db.end(); ++it)
+            { n++;
+                if(n>=ocount/2)
+                    break;
+                cout<<"\n Bunny "<<it->name<<"was killed<===============================================";
+                 it=db.erase(it);
+                 it--;
+           }
+
+
         }
 }
