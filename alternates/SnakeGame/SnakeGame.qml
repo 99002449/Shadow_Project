@@ -4,8 +4,16 @@ import QtQuick 2.0
 
 Rectangle {
     id:root
-    width: 400; height: 200
-    property int countDownTime:60
+    width: 400; height: 380
+    color: "#5BEFE2"
+    border.color: "black"
+    border.width: 1
+    property int countDownTime:10
+    gradient: Gradient{
+        GradientStop{ position:0.0;color:"#255BEFE2"}
+        GradientStop{ position:1.0;color:"#5BEFE2"}
+
+    }
 
     Text{
         id:title
@@ -62,10 +70,14 @@ Rectangle {
         x: 20; y: 20
         width: 40; height: 20;
         color:"black"
-        onXChanged: checkRectangleXPosition()
-        onYChanged: checkRectangleXPosition()
+        gradient: Gradient{
+            GradientStop{ position:0.0;color:"#70000000"}
+            GradientStop{ position:1.0;color:"#000000"}
+           }
+        onXChanged: checkRectanglePosition()
+        onYChanged: checkRectanglePosition()
     }
-    function checkRectangleXPosition()
+    function checkRectanglePosition()
     {
         if( dot.x>=square.x && dot.x<=square.x +40 && dot.y>=square.y && dot.y<=square.y+20)
         {
@@ -75,7 +87,14 @@ Rectangle {
             dot.y=Math.random()*100
 
         }
-
+            if(square.x==-20)
+            {
+                    square.x=root.width
+            }
+            if(square.y==-20)
+            {
+                    square.y=300  //or root.height
+            }
     }
 
     Rectangle {
@@ -84,7 +103,7 @@ Rectangle {
         y: Math.random()*100
         radius: 20
         width: 10; height: 10;
-        color:"green"
+        color:"red"
 
     }
     focus: true
@@ -106,5 +125,35 @@ Rectangle {
         }
     }
 
+
+    Text {
+        text: "_____________________________________________"
+        x:0
+        y:300
+         opacity: 0.7
+        font.family: "Helvetica"
+        font.pointSize: 12
+        color: "blue"
+    }
+
+
+    Image{
+        id: img
+        y:300
+        x:-20
+        opacity: 0.7
+        source:"ltts.jpg"
+        scale: 0.4
+    }
+
+    Text {
+        text: "Welcome to LTTS! Engineering the change"
+        x:40
+        y:360
+         opacity: 0.7
+        font.family: "Helvetica"
+        font.pointSize: 12
+        color: "blue"
+    }
 
 }
