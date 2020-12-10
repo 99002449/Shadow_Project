@@ -15,7 +15,7 @@ Window {
     title: qsTr("Waveform Drawing - Shadow Project using Qt/QML")
     property  double widthPercentage: 7/10
     property double heightPercentage: 2.5
-    color: "Black"
+    color: "#000000"
 
     GridLayout
     {

@@ -23,15 +23,15 @@ GridLayout{
         implicitHeight:40
         onClicked:
         {
-                fileDialog.open()
+            fileDialog.open()
         }
 
         background: Rectangle{
             id: buttonColor
             gradient: Gradient {
-                  GradientStop { position: 0 ; color: "#ffeb99"  }
-                  GradientStop { position: 1 ; color: "#997a00"  }
-                }
+                GradientStop { position: 0 ; color: "#ffeb99"  }
+                GradientStop { position: 1 ; color: "#997a00"  }
+            }
             radius: 5
 
         }
@@ -51,9 +51,21 @@ GridLayout{
     Dial
     {
         id:amplitudeDial
+        stepSize: 10
         implicitWidth:80
         Layout.alignment:  Qt.AlignTop
         Layout.bottomMargin: -10
+        from:0
+        to:100
+        value:0
+        background: Rectangle{
+            color: "#fff5cc"
+            radius: 60
+            width: Math.max(64, Math.min(amplitudeDial.width, amplitudeDial.height))
+            height: width
+            y: 40
+        }
+
     }
     Text {
         color: "white"
@@ -70,6 +82,16 @@ GridLayout{
         Layout.bottomMargin: 25
         Layout.alignment:  Qt.AlignTop
         implicitWidth:80
+        from:0
+        to:100
+        value:0
+        background: Rectangle{
+            color: "#fff5cc"
+            radius: 60
+            width: Math.max(64, Math.min(amplitudeDial.width, amplitudeDial.height))
+            height: width
+            y: 40
+        }
     }
     ComboBox
     {
@@ -87,19 +109,21 @@ GridLayout{
         background: Rectangle{
             id: combo1
             gradient: Gradient {
-                  GradientStop { position: 0 ; color: "#ffeb99"  }
-                  GradientStop { position: 1 ; color: "#997a00"  }
-                }
+                GradientStop { position: 0 ; color: "#ffeb99"  }
+                GradientStop { position: 1 ; color: "#997a00"  }
+            }
             radius: 5
 
         }
+
         implicitHeight: 30
         implicitWidth: 140
+
         onActivated:  {
-            if(chooseColor.currentIndex===1)  graph1.referenceToWave="Blue"
-            else if(chooseColor.currentIndex===2)  graph1.referenceToWave="Green"
-            else if(chooseColor.currentIndex===3)  graph1.referenceToWave="Red"
-            else if(chooseColor.currentIndex===4)  graph1.referenceToWave="Yellow"
+            if(graphColorComboBox.currentIndex===1)  graph1.referenceToWave.color="Blue"
+            else if(graphColorComboBox.currentIndex===2)  graph1.referenceToWave.color="Green"
+            else if(graphColorComboBox.currentIndex===3)  graph1.referenceToWave.color="Red"
+            else if(graphColorComboBox.currentIndex===4)  graph1.referenceToWave.color="Yellow"
         }
 
     }
@@ -115,9 +139,9 @@ GridLayout{
         background: Rectangle{
             id: combo2
             gradient: Gradient {
-                  GradientStop { position: 0 ; color: "#ffeb99"  }
-                  GradientStop { position: 1 ; color: "#997a00"  }
-                }
+                GradientStop { position: 0 ; color: "#ffeb99"  }
+                GradientStop { position: 1 ; color: "#997a00"  }
+            }
             radius: 5
 
         }

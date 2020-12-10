@@ -8,6 +8,7 @@ ChartView
     height:mainWindow.height/heightPercentage
     visible: true
     property alias referenceToWave: wave
+    theme: ChartView.ChartThemeDark
     SplineSeries
     {
         //name: "SplineSeries"
