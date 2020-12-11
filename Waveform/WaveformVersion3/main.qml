@@ -34,7 +34,7 @@ Window {
             width: mainWindow.width*widthPercentage
             height:mainWindow.height/heightPercentage
             visible: true
-            property alias referenceToWave: wave
+
             theme: ChartView.ChartThemeDark
 
 
@@ -177,10 +177,10 @@ Window {
                 implicitWidth: 140
 
                 onActivated:  {
-                    if(graphColorComboBox.currentIndex===1)  graph1.referenceToWave.color="Blue"
-                    else if(graphColorComboBox.currentIndex===2)  graph1.referenceToWave.color="Green"
-                    else if(graphColorComboBox.currentIndex===3)  graph1.referenceToWave.color="Red"
-                    else if(graphColorComboBox.currentIndex===4)  graph1.referenceToWave.color="Yellow"
+                    if(graphColorComboBox.currentIndex===1)  graph1.color="Blue"
+                    else if(graphColorComboBox.currentIndex===2)  graph1.color="Green"
+                    else if(graphColorComboBox.currentIndex===3)  graph1.color="Red"
+                    else if(graphColorComboBox.currentIndex===4)  graph1.color="Yellow"
                 }
 
             }
@@ -204,10 +204,10 @@ Window {
                 }
 
                 onActivated:  {
-                    if(graphThicknessComboBox.currentIndex===1)  graph1.referenceToWave.width=3
-                    else if(graphThicknessComboBox.currentIndex===2) graph1.referenceToWave.width=6
-                    else if(graphThicknessComboBox.currentIndex===3)graph1.referenceToWave.width=8
-                    else if(graphThicknessComboBox.currentIndex===4)graph1.referenceToWave.width=10
+                    if(graphThicknessComboBox.currentIndex===1)  graph1.width=3
+                    else if(graphThicknessComboBox.currentIndex===2) graph1.width=6
+                    else if(graphThicknessComboBox.currentIndex===3)graph1.width=8
+                    else if(graphThicknessComboBox.currentIndex===4)graph1.width=10
                     implicitHeight: 30
                     implicitWidth: 140
 
