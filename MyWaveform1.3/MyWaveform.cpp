@@ -70,7 +70,7 @@ void MyWaveform::read_data(vector<double> &avec, vector<double> &bvec)
     std::fstream fin;
     avec.clear();
     bvec.clear();
-    fin.open("C:/Users/99002641/Documents/LineChart/dataset1.csv", std::ios::in);
+    fin.open(filename, std::ios::in);
     if(!fin.is_open())
     {
         cout<<"UNABLE to open file";
