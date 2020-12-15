@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MySettings.qml</file>
+        <file>MyTitle.qml</file>
+        <file>MyGraphChart1.qml</file>
+        <file>MyGraphChart2.qml</file>
+        <file>language.qml</file>
+        <file>translator/Data_FRE.qm</file>
+        <file>translator/Data_JAP.qm</file>
+        <file>image/England.png</file>
+        <file>image/France.png</file>
+        <file>image/Japan.png</file>
+    </qresource>
+</RCC>
