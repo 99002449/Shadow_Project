@@ -3,7 +3,6 @@
 #include <QApplication>
 #include <QQuickWindow>
 #include <QQmlContext>
-#include "cppclass.h"
 #include "mywaveform.h"
 #include "mylang.h"
 #include "mytranslator.h"
