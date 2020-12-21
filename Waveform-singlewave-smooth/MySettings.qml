@@ -31,55 +31,80 @@ GridLayout{
     Rectangle
    {
        Layout.bottomMargin: 120
-        RowLayout
-        {
-            Image {
-                id: english
-                source: "image/England.png"
-                MouseArea{
-                    anchors.fill:english
-                    onClicked: mytrans.updateLanguage(MyLang.ENG)
-                }
-            }
-            Image {
-                id: india
-                Layout.leftMargin: 7
-                source: "image/India.png"
-                MouseArea{
-                    anchors.fill:india
-                    onClicked: mytrans.updateLanguage(MyLang.HIN)
-                }
-            }
-            Image {
-                id: kannada
-                Layout.leftMargin: 7
-                source: "image/Karnataka.png"
-                MouseArea{
-                    anchors.fill:kannada
-                    onClicked: mytrans.updateLanguage(MyLang.KAN)
-                }
-            }
-            Image {
-                id: france
-                Layout.leftMargin: 7
-                source: "image/France.png"
-                MouseArea{
-                    anchors.fill:france
-                    onClicked: mytrans.updateLanguage(MyLang.FRE)
-                }
-            }
-            Image {
-                id: japan
-                Layout.leftMargin: 7
-                source: "image/Japan.png"
-                MouseArea{
-                    anchors.fill:japan
-                    onClicked: mytrans.updateLanguage(MyLang.JAP)
-                }
-            }
+         RowLayout
+       {
+           Image {
+              property string toolTipTextEnglish: data.languageToolTip[0]
+               id: english
+               ToolTip.text: toolTipTextEnglish
+               ToolTip.visible:toolTipTextEnglish ? mouseAreaImageEnglish.containsMouse : false
+               source: "image/England.png"
+               MouseArea{
+                    id:mouseAreaImageEnglish
+                   anchors.fill:english
+                   onClicked: mytrans.updateLanguage(MyLang.ENG)
+                     hoverEnabled: true
+               }
+           }
+           Image {
+               property string toolTipTextHindi:data.languageToolTip[1]
+               id: india
+               Layout.leftMargin: 7
+               source: "image/India.png"
+               ToolTip.text: toolTipTextHindi
+               ToolTip.visible:toolTipTextHindi ? mouseAreaImageHindi.containsMouse : false
+               MouseArea{
+                   id:mouseAreaImageHindi
+                   anchors.fill:india
+                   onClicked: mytrans.updateLanguage(MyLang.HIN)
+                   hoverEnabled: true
+               }
+           }
+           Image {
+               property string toolTipTextKannada: data.languageToolTip[2]
+               id: kannada
+               ToolTip.text: toolTipTextKannada
+               ToolTip.visible:toolTipTextKannada? mouseAreaImageKannada.containsMouse : false
+               Layout.leftMargin: 7
+               source: "image/Karnataka.png"
+               MouseArea{
+                   id:mouseAreaImageKannada
+                   anchors.fill:kannada
+                   onClicked: mytrans.updateLanguage(MyLang.KAN)
+                   hoverEnabled: true
+               }
+           }
+           Image {
+               property string toolTipTextFrench: data.languageToolTip[3]
+               id: france
+               ToolTip.text: toolTipTextFrench
+               ToolTip.visible:toolTipTextFrench? mouseAreaImageFrance.containsMouse : false
+               Layout.leftMargin: 7
+               source: "image/France.png"
+               MouseArea{
+                   id:mouseAreaImageFrance
+                   anchors.fill:france
+                   onClicked: mytrans.updateLanguage(MyLang.FRE)
+                   hoverEnabled: true
+               }
+           }
+           Image {
+               property string toolTipTextJapan: data.languageToolTip[4]
+               id: japan
+               ToolTip.text: toolTipTextJapan
+               ToolTip.visible:toolTipTextJapan? mouseAreaImageJapan.containsMouse : false
+               Layout.leftMargin: 7
+               source: "image/Japan.png"
+               MouseArea{
+                   id:mouseAreaImageJapan
+                   anchors.fill:japan
+                   onClicked: mytrans.updateLanguage(MyLang.JAP)
+                   hoverEnabled: true
+               }
+           }
 
 
-        }
+       }
     }
     //browseButton
     Button{
