@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MyChart.qml</file>
+        <file>MySettings.qml</file>
+        <file>image/England.png</file>
+        <file>image/France.png</file>
+        <file>image/India.png</file>
+        <file>image/Japan.png</file>
+        <file>image/Karnataka.png</file>
+        <file>MyTitle.qml</file>
+        <file>GraphAndSettings.qml</file>
+        <file>translator/Language_FRE.qm</file>
+        <file>translator/Language_HIN.qm</file>
+        <file>translator/Language_JAP.qm</file>
+        <file>translator/Language_KAN.qm</file>
+    </qresource>
+</RCC>
